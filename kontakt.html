@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Autoservis - kontakt</title>
+    <link rel="shortcut icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/autoservis.css" />
+    <link rel="stylesheet" href="icofont/icofont.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    />
+    <script src="js/leaflet.js"></script>
+  </head>
+  <body>
+    <header class="header-main">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="logo spoločnosti" />
+        <h1><span>Auto</span>servis</h1>
+      </a>
+      <nav class="nav-main">
+        <a href="index.html"><i class="icofont-home"></i> Úvod</a>
+        <a href="sluzby.html"><i class="icofont-list"></i> Služby</a>
+        <a href="galeria.html"><i class="icofont-image"></i> Galéria</a>
+        <a href="kontakt.html" class="active"
+          ><i class="icofont-map"></i> Kontakt</a
+        >
+      </nav>
+    </header>
+    <main class="contact">
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <fieldset>
+          <legend>Kontaktný formulár</legend>
+          <label for="name">Celé meno <sup>*</sup></label> <br />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+            minlength="2"
+            autofocus
+          />
+          <br />
+          <label for="email">E-mail <sup>*</sup></label> <br />
+          <input type="email" name="email" id="email" required /> <br />
+          <label for="message">Správa <sup>*</sup></label> <br />
+          <textarea
+            name="message"
+            required
+            minlength="10"
+            maxlength="198"
+            rows="6"
+            cols="33"
+          ></textarea>
+          <p><sup>*</sup>Povinná položka</p>
+          <input
+            type="hidden"
+            name="redirect"
+            value="https://monika.wpkurz.sk/uspech.html"
+          />
+          <input
+            type="hidden"
+            name="access_key"
+            value="4599a6bb-b9d7-4602-a237-c8c668bab172"
+          />
+          <input
+            type="hidden"
+            name="subject"
+            value="Máte novú správu z formulára"
+          />
+          <input type="hidden" name="from_name" value="Autoservis" />
+        </fieldset>
+        <div>
+          <button type="submit">Odoslať</button>
+        </div>
+      </form>
+
+      <figure id="mapa"></figure>
+    </main>
+
+    <footer class="footer-main">
+      <h1>&copy;2022 Autoservis, spol. s.r.o</h1>
+    </footer>
+
+    <script>
+      const coords = [48.1594717, 17.1234079];
+      const zoom = 18;
+
+      const map = L.map("mapa").setView(coords, zoom);
+
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
+
+      L.marker(coords)
+        .addTo(map)
+        .bindPopup("V tejto budove sidlime")
+        .openPopup();
+    </script>
+  </body>
+</html>

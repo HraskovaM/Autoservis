@@ -1,0 +1,173 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/Roboto-Regular.ttf");
+}
+
+html {
+  font-size: 62.5%;
+  --gap: 1.6rem;
+  --text-primary: black;
+  --text-secondary: white;
+  --bg-primary: white;
+  --bg-secondary: darkslategray;
+  --header-height: 6rem;
+  --footer-height: 3rem;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: var(--header-height) 1fr var(--footer-height);
+  font-size: 1.6rem;
+  font-family: "Roboto";
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--gap);
+  background-color: var(--bg-secondary);
+}
+
+.logo {
+  display: flex;
+  column-gap: var(--gap);
+  text-decoration: none;
+  align-items: center;
+}
+
+.logo img {
+  height: 4rem;
+}
+
+.logo h1 {
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.logo h1 span {
+  color: var(--text-primary);
+}
+
+.nav-main {
+  display: flex;
+}
+
+.nav-main a {
+  width: 10rem;
+  color: var(--text-secondary);
+  line-height: var(--header-height);
+  text-decoration: none;
+  text-align: center;
+  transition: 300ms;
+}
+
+.nav-main .active,
+.nav-main :hover {
+  color: var(--bg-secondary);
+  background-color: var(--text-secondary);
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery {
+  padding: var(--gap);
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: var(--gap);
+}
+.gallery a {
+  width: 26rem;
+  font-size: 0;
+  text-decoration: none;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.gallery img {
+  flex-grow: 1;
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  transition: 300ms;
+  filter: grayscale(100%);
+  border-radius: 1.5rem;
+}
+
+.gallery img:hover {
+  transform: scale(1.1, 1.1);
+  filter: grayscale(0%);
+  border-radius: none;
+}
+
+.contact {
+  padding: var(--gap);
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: min-content;
+  align-content: center;
+  justify-content: center;
+  gap: var(--gap);
+}
+
+.contact input {
+  width: 100%;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.contact textarea {
+  resize: none;
+}
+
+.contact sup {
+  color: red;
+}
+
+.contact form {
+  order: 2;
+}
+
+.contact form div {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.contact figure {
+  margin: 0;
+  height: 100%;
+  width: 50rem;
+  order: -1;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 0.1rem solid black;
+}
+
+.footer-main h1 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
